@@ -1,0 +1,13 @@
+<ion-view title="Activity">
+  <ion-content class="has-header padding">
+    <!--logo-->
+    
+    <!--content-->
+      <ion-list>
+          <ion-item ng-repeat="activity in activities">
+              <h2>{{activity.title}}</h2>
+              <p>{{activity.description}}</p>
+          </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>

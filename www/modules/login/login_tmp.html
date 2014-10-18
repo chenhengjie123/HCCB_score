@@ -1,0 +1,34 @@
+<ion-view title="{{loginTitle}}">
+  <ion-content class="has-header padding">
+    <!--logo-->
+    
+    <!--content-->
+    <div class="card list login">
+        <div class="item item-divider header header1">
+            {{appName}}
+        </div>
+        <form name="loginForm" novalidate>
+            <div class="item content login-content">
+                <div id='loginImg'>
+                    <img ng-src='img/ionic.png'>
+                </div>
+                <label class="item item-input user-name">
+                    <input type="text" placeholder="User Name" ng-model="userName" required />
+                </label>
+                <div class="hline"><div></div></div>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="password" required />
+                </label>
+                <div ng-show="!userName || !password">Please fill in username and password.</div>
+            </div>
+            </form>
+
+            <div class="padding">
+                 <button id="loginBtn" class="button button-block button-positive submitButton" ng-click="login()" ng-disabled="loginForm.$invalid">{{loginButton}}</button > 
+            </div>
+
+    </div>
+
+
+  </ion-content>
+</ion-view>
