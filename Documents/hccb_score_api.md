@@ -18,11 +18,11 @@ Response:
 
     {
         "apiVersion":"v1.0",
-        "serverUrl":"http://abc.com/"
+        "apiPrefix":"http://abc.com/api/v1/"
         "resources":[
-            {"score":"api/scores"},
-            {"activity":"api/activities"},
-            {"user":"api/users"}
+            {"score":"scores"},
+            {"activity":"activities"},
+            {"user":"users"}
         ]
     }
 
