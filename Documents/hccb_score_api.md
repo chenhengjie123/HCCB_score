@@ -91,7 +91,7 @@ Post content(use form to post):
 name|example value|detail
 ----|-----|------
 mobile|"13245647584"|mobile number
-password|"14240234"|password
+password|"14240234"|password with sha1 encryption
 nickname|"chj"|
     
 Response:
