@@ -78,7 +78,8 @@ Refferences:
 [Basic and Digest Access Authentication (rfc2617) 及HttpClient实现](http://www.cnblogs.com/jcli/archive/2012/12/11/2812459.html) ,
 [Github v3 Oauth](https://developer.github.com/v3/oauth/) ,
 [Best pratices for restful api - authentication](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#authentication) ,
-[签署和对 REST 请求进行身份验证-AWS](http://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/RESTAuthentication.html)
+[签署和对 REST 请求进行身份验证-AWS](http://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/RESTAuthentication.html) ,
+[How do I let users log into my RESTful API?-The RESTful CookBook](http://restcookbook.com/Basics/loggingin/)
 
 
 
