@@ -67,13 +67,20 @@ Never return this intentionally. The general catch-all error when the server-sid
 
 Since Restful api is stateless, every request need to have authentication. 
 
-If we can use **https**, we would use it in every request with **http basic authentication**.
-If not, we use **http digest authentication**.
-In the future, we can use **OAuth 2** for authentication
+If we can use **https**, we would use it with **http basic authentication**(simplest and security enough for us).
 
-Refference: https://developer.github.com/v3/auth/ ,
+If not, we use **HMAC(Hash-based Message Authentication Code)**(used by AWS).
+
+In the future, we can use **OAuth 2** for authentication(used by github).
+
+Refferences: 
+[Github v3 auth](https://developer.github.com/v3/auth/) ,
 [Basic and Digest Access Authentication (rfc2617) 及HttpClient实现](http://www.cnblogs.com/jcli/archive/2012/12/11/2812459.html) ,
-https://developer.github.com/v3/oauth/
+[Github v3 Oauth](https://developer.github.com/v3/oauth/) ,
+[Best pratices for restful api - authentication](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#authentication) ,
+[签署和对 REST 请求进行身份验证-AWS](http://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/RESTAuthentication.html)
+
+
 
 ### Check if user exist
 
