@@ -2,7 +2,7 @@
 
 This is document of HCCB_score app. We mainly use RESTful api and each uri of GET/PUT/DELETE request should correspond to a table in database. Only POST correspond to an operation, not only a table.
 
-*Add in 10.23: *
+**Add in 10.23:**
 
 Principles:
 
@@ -67,9 +67,9 @@ Never return this intentionally. The general catch-all error when the server-sid
 
 Since Restful api is stateless, every request need to have authentication. 
 
-If we can use *https*, we would use it in every request with *http basic authentication*.
-If not, we use *http digest authentication*.
-In the future, we can use *OAuth 2* for authentication
+If we can use **https**, we would use it in every request with **http basic authentication**.
+If not, we use **http digest authentication**.
+In the future, we can use **OAuth 2** for authentication
 
 Refference: https://developer.github.com/v3/auth/ ,
 [Basic and Digest Access Authentication (rfc2617) 及HttpClient实现](http://www.cnblogs.com/jcli/archive/2012/12/11/2812459.html) ,
