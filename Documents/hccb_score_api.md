@@ -2,6 +2,13 @@
 
 This is document of HCCB_score app. We mainly use RESTful api and each uri of GET/PUT/DELETE request should correspond to a table in database. Only POST correspond to an operation, not only a table.
 
+**Add in 10.23:**
+
+Principles:
+
+1. Use existed methord/standard rather than self-created, expecially things about security.
+2. If github api have same/familiar methord, just design it in the same way.
+
 references: 
 [rest api tutorial](http://www.restapitutorial.com),
 [http status codes](http://www.restapitutorial.com/httpstatuscodes.html)
@@ -10,20 +17,18 @@ references:
 
 All resource name in uri should be plurals(复数)
 
+References: [api.github.com](https://api.github.com)
+
 Request:
 
-    GET api/configs
+    GET api
     
 Response:
 
     {
-        "apiVersion":"v1.0",
-        "apiPrefix":"http://abc.com/api/v1/"
-        "resources":[
-            {"score":"scores"},
-            {"activity":"activities"},
-            {"user":"users"}
-        ]
+        "scores_url":"http://abc.com/api/scores"
+        "activities_url":"http://abc.com/api/activities"
+        "users_url":"http://abc.com/api/users"
     }
 
 ## Error codes and related messages:
@@ -58,7 +63,25 @@ Never return this intentionally. The general catch-all error when the server-sid
 
 ### Login and logout
 
-When app send a request with user’s token in request header, it is treated as login. ONLY Register requests can be without this token, other features need to check token first.
+~~When app send a request with user’s token in request header, it is treated as login. ONLY Register requests can be without this token, other features need to check token first.~~
+
+Since Restful api is stateless, every request need to have authentication. 
+
+If we can use **https**, we would use it with **http basic authentication**(simplest and security enough for us).
+
+If not, we use **HMAC(Hash-based Message Authentication Code)**(used by AWS).
+
+In the future, we can use **OAuth 2** for authentication(used by github).
+
+Refferences: 
+[Github v3 auth](https://developer.github.com/v3/auth/) ,
+[Basic and Digest Access Authentication (rfc2617) 及HttpClient实现](http://www.cnblogs.com/jcli/archive/2012/12/11/2812459.html) ,
+[Github v3 Oauth](https://developer.github.com/v3/oauth/) ,
+[Best pratices for restful api - authentication](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#authentication) ,
+[签署和对 REST 请求进行身份验证-AWS](http://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/RESTAuthentication.html) ,
+[How do I let users log into my RESTful API?-The RESTful CookBook](http://restcookbook.com/Basics/loggingin/)
+
+
 
 ### Check if user exist
 
@@ -75,6 +98,10 @@ user exist:
 user not exist:
 
     status code = 404
+    
+    {
+    	"error":"error message"
+    }
 
 ATTENTION: Since add record with mobile number would create user that didn't existed yet, so we check if user's password exist for isRegistered. If mobile didn't exist or password is null, it should be treated as unregistered.
 
@@ -91,7 +118,7 @@ Post content(use form to post):
 name|example value|detail
 ----|-----|------
 mobile|"13245647584"|mobile number
-password|"14240234"|password
+password|"14240234"|password with sha1 encryption
 nickname|"chj"|
     
 Response:
