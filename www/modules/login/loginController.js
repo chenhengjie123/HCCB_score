@@ -1,25 +1,32 @@
 login
-.controller('LoginCtrl', function($scope,$location, $state) {
-    $scope.loginButton = Resource.LoginButton;
-    $scope.loginTitle = Resource.LoginTitle;
-    $scope.appName = Resource.AppName;
-    
-    $scope.userName = "test";
-    $scope.password = "test";
-    
-    
-    $scope.login = function(){
-        console.log("username: " + $scope.userName);
-        console.log("password: " + $scope.password);
-        if ($scope.userName == 'test' && $scope.password == 'test'){
-            addToken($scope.userName+$scope.password);
-            console.info("Login success. UserName = " + $scope.userName);
-            $state.transitionTo('app.account');
-        }
-    }
-    
-    
-})
+    .controller('LoginCtrl', function ($scope, $location, $state) {
+        $scope.loginButton = Resource.LoginButton;
+        $scope.offlineButton = Resource.OfflineButton;
+        $scope.loginTitle = Resource.LoginTitle;
+        $scope.appName = Resource.AppName;
+
+        $scope.userName = "test";
+        $scope.password = "test";
+
+
+        $scope.login = function () {
+            console.log("username: " + $scope.userName);
+            console.log("password: " + $scope.password);
+            if ($scope.userName == 'test' && $scope.password == 'test') {
+                addToken($scope.userName + $scope.password);
+                console.info("Login success. UserName = " + $scope.userName);
+                $state.transitionTo('app.score');
+            };
+        };
+
+        $scope.offline = function () {
+            addToken("offlineMode");
+            console.log("Entry offline mode. ALl datas are come from fake datas");
+            Config.isOffline = true;
+            $state.transitionTo('app.score');
+        };
+
+    })
 /*
 .directive('loginView',function($timeout){
     

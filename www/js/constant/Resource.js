@@ -1,4 +1,4 @@
-function Resource(){};
+function Resource() {};
 
 /*All*/
 Resource.AppName = "HCCB System"
@@ -6,6 +6,7 @@ Resource.AppName = "HCCB System"
 /*Login*/
 Resource.LoginTitle = "Login"
 Resource.LoginButton = "Login"
+Resource.OfflineButton = "Offline Mode"
 
 /*Account*/
 Resource.AccountTitle = "Account"
@@ -15,4 +16,4 @@ Resource.LogoutButton = "Logout"
 Resource.ActivityTitle = "Activity"
 
 /*History*/
-Resource.HistoryTitle = "History"
+Resource.ScoreTitle = "Score"
