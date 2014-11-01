@@ -1,0 +1,15 @@
+<ion-view title="Score">
+    <ion-content class="has-header padding">
+        <!--logo-->
+
+        <!--content-->
+        <ion-list>
+            <ion-item ng-repeat="score in scores">
+                {{score.nickname}}
+                <span class="item-note">
+                  {{score.score}}
+                </span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
