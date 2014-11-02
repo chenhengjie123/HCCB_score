@@ -3,6 +3,7 @@ function ServiceURL() {};
 ServiceURL.SERVER = 'http://127.0.0.1'
 ServiceURL.API = ServiceURL.SERVER + '/api'
 ServiceURL.ACCOUNT = ServiceURL.API + '/accout'
+ServiceURL.USER = ServiceURL.API + '/users'
 ServiceURL.ACTIVITY = ServiceURL.API + '/activity'
 ServiceURL.HISTORY = ServiceURL.API + '/history'
 ServiceURL.SCORE = ServiceURL.API + '/scores'

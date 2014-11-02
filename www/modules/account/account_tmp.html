@@ -1,8 +1,20 @@
 <ion-view title="{{title}}">
-  <ion-content class="has-header padding">
-    <!--logo-->
-    <button class="button button-block button-positive submitButton" ng-click="logout()">{{logoutBtn}}</button>
-    <!--content-->
-      
-  </ion-content>
+    <ion-content class="has-header padding">
+
+        <!--content-->
+        <div class="list">
+            <div class="item item-icon-left" ng-click="changeMobile()">
+                <i class="icon ion-iphone"></i>
+                {{mobileText}}
+                <span class="item-note">{{userInfo.mobile}}</span>
+            </div>
+            <div class="item item-icon-left" ng-click="changeNickname()">
+                <i class="icon ion-person"></i>
+                {{nicknameText}}
+                <span class="item-note">{{userInfo.nickname}}</span>
+            </div>
+        </div>
+
+        <button class="button button-block button-positive submitButton" ng-click="logout()">{{logoutBtn}}</button>
+    </ion-content>
 </ion-view>

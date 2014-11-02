@@ -11,6 +11,8 @@ Resource.OfflineButton = "Offline Mode"
 /*Account*/
 Resource.AccountTitle = "Account"
 Resource.LogoutButton = "Logout"
+Resource.MobileText = "Mobile"
+Resource.NicknameText = "Nickname"
 
 /*Activiry*/
 Resource.ActivityTitle = "Activity"

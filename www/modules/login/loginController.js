@@ -22,6 +22,7 @@ login
         $scope.offline = function () {
             addToken("offlineMode");
             console.log("Entry offline mode. ALl datas are come from fake datas");
+            localStorage.setItem("userId", "123")
             Config.isOffline = true;
             $state.transitionTo('app.score');
         };
