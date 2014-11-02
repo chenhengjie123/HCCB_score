@@ -161,23 +161,23 @@ Response:
     {
         "data": [
             {
+                "userId":"1",
                 "nickname": "abc",
                 "score": "123",
-                "position":"1"
-                "isCurrentUser":false
+                "position":1
             },
             {
+            	"userId":"2",
                 "nickname": "bcd",
                 "score": "234",
-                "position":"2",
-                "isCurrentUser":false
+                "position":2
             },
             ...
             {
+            	"userId":"100",
                 "nickname":"aaa",
-                "score":"",
-                "position":"12312",
-                "isCurrentUser":true
+                "score":"0",
+                "position":12312
             }
         ]
     }
@@ -188,8 +188,8 @@ name|example value|detail
 ----|-----|------
 nickname|"abc"|user's nickname
 score|"123"|user's score
-position|"123"|user's position in score list, order from max to min
-isCurrent|"true"|It's used to represent it's score for current user
+position|123|user's position in score list, order from max to min
+isCurrent|true|It's used to represent it's score for current user
 
 ### get someone's score
 
@@ -204,9 +204,10 @@ Response:
     {
         "data": [
             {
-                "nickname": "abc",
-                "score": "123",
-                "position":"1"
+            	"userId":"100",
+                "nickname":"aaa",
+                "score":"0",
+                "position":12312
             }
         ]
     }
