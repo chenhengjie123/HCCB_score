@@ -3,21 +3,25 @@
         <!--logo-->
 
         <!--content-->
-        <ion-list>
-            <ion-item ng-repeat="score in scores | orderBy:'position'">
-                <div ng-if="score.userId == userId" class="balanced">
-                    {{score.nickname}}
-                    <span class="item-note balanced">
-                          {{score.score}}
-                        </span>
+        <div class="list card">
+
+            <div class="item item-divider row">
+                <span class="col">position</span>
+                <span class="col">nickname</span>
+                <span class="col">score</span>
+            </div>
+            <div ng-repeat="score in scores | orderBy:'position'">
+                <div ng-if="score.userId == userId" class="item row balanced">
+                    <span class="col">{{score.position}}</span>
+                    <span class="col">{{score.nickname}}</span>
+                    <span class="col">{{score.score}}</span>
                 </div>
-                <div ng-if="score.userId != userId">
-                    {{score.nickname}}
-                    <span class="item-note">
-                          {{score.score}}
-                        </span>
+                <div ng-if="score.userId != userId" class="item row">
+                    <span class="col">{{score.position}}</span>
+                    <span class="col">{{score.nickname}}</span>
+                    <span class="col">{{score.score}}</span>
                 </div>
-            </ion-item>
-        </ion-list>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

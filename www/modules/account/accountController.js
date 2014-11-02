@@ -1,5 +1,5 @@
 main
-    .controller('AccountCtrl', function ($state, $scope, $ionicPopup, AccountService) {
+    .controller('AccountCtrl', function ($state, $scope, $ionicPopup, $q, AccountService) {
         if (getToken() == "") {
             $state.transitionTo('login');
         }
@@ -9,26 +9,32 @@ main
         $scope.nicknameText = Resource.NicknameText;
 
         $scope.logout = function () {
-            console.log("user logout")
+            console.log("user logout");
             deleteToken();
-            $state.transitionTo("login")
+            localStorage.removeItem("userId");
+            $state.transitionTo("login");
         };
 
         $scope.changeMobile = function () {
+            changeInfo("Mobile", $scope.userInfo.mobile).then(function (data) { // TODO: Send new value to server
+                $scope.userInfo.mobile = data;
+            });
 
-            changeInfo("Mobile", $scope.userInfo.mobile);
-            // TODO: Send new value to server
         };
 
         $scope.changeNickname = function () {
-            changeInfo("Nickname", $scope.userInfo.nickname);
-            // TODO: Send new value to server
+            changeInfo("Nickname", $scope.userInfo.nickname).then(function (data) { // TODO: Send new value to server
+                $scope.userInfo.nickname = data;
+            });
         };
 
         getUserInfo();
 
-        function changeInfo(title, originalValue) {
+        //private functions
+
+        var changeInfo = function (title, originalValue) {
             console.log("change " + title + ", originalValue: " + originalValue)
+            var deferred = $q.defer();
             $scope.data = {}
             $scope.data.value = originalValue
 
@@ -59,7 +65,11 @@ main
             changeInfoPopup.then(function (res) {
                 //res is return value of changeInfoPopup
                 console.log('Tapped!', res);
+                if (res) {
+                    deferred.resolve(res);
+                }
             });
+            return deferred.promise;
         };
 
 
