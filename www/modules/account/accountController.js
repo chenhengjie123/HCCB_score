@@ -40,9 +40,8 @@ main
 
             // An elaborate, custom popup
             var changeInfoPopup = $ionicPopup.show({
-                template: '<div class="item item-input"><input type="text" ng-model="data.value"></div>',
+                template: '<div class="item item-input"><input type="text" ng-model="data.value" placeholder="Please input something."></div>',
                 title: title,
-                subtitle: "Please input something",
                 scope: $scope,
                 buttons: [
                     {

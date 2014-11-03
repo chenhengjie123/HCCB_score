@@ -13,7 +13,9 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackupWebStorage" value="none" />
-    <preference name="Fullscreen" value="true" />
+    <!--Set Fullscreen to false to support windowSoftInputMode-->
+    <!--http://stackoverflow.com/questions/19989890/androidphonegap-androidwindowsoftinputmode-doesnt-seem-to-work/-->
+    <preference name="Fullscreen" value="false" />
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>

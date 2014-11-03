@@ -6,20 +6,20 @@
         <div class="list card">
 
             <div class="item item-divider row">
-                <span class="col">position</span>
-                <span class="col">nickname</span>
-                <span class="col">score</span>
+                <span class="col text-center">position</span>
+                <span class="col text-center">nickname</span>
+                <span class="col text-center">score</span>
             </div>
             <div ng-repeat="score in scores | orderBy:'position'">
                 <div ng-if="score.userId == userId" class="item row balanced">
-                    <span class="col">{{score.position}}</span>
-                    <span class="col">{{score.nickname}}</span>
-                    <span class="col">{{score.score}}</span>
+                    <span class="col text-center">{{score.position}}</span>
+                    <span class="col text-center">{{score.nickname}}</span>
+                    <span class="col text-center">{{score.score}}</span>
                 </div>
                 <div ng-if="score.userId != userId" class="item row">
-                    <span class="col">{{score.position}}</span>
-                    <span class="col">{{score.nickname}}</span>
-                    <span class="col">{{score.score}}</span>
+                    <span class="col text-center">{{score.position}}</span>
+                    <span class="col text-center">{{score.nickname}}</span>
+                    <span class="col text-center">{{score.score}}</span>
                 </div>
             </div>
         </div>
