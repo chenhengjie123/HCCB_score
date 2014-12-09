@@ -1,13 +1,36 @@
-<ion-view title="Activity">
-  <ion-content class="has-header padding">
-    <!--logo-->
-    
-    <!--content-->
-      <ion-list>
-          <ion-item ng-repeat="activity in activities">
-              <h2>{{activity.title}}</h2>
-              <p>{{activity.description}}</p>
-          </ion-item>
-      </ion-list>
-  </ion-content>
+<ion-view title="{{title}}">
+    <ion-content class="has-header padding">
+        <!--logo-->
+        <div ng-show="!errorMessage">{{errorMessage}}</div>
+
+        <!--content-->
+        <ion-list>
+            <div class="card" ng-repeat="activity in activities">
+                <div class="item item-avatar">
+                    {{activity.title}}
+                </div>
+                <div class="item item-body">
+                    <p>description:</p>
+                    <p>{{activity.neirong}}</p>
+                    <p>start time:</p>
+                    <p>{{activity.starttime}}</p>
+                    <p>end time:</p>
+                    <p>{{activity.endtime}}</p>
+                    <p>date:</p>
+                    <p>{{activity.date}}</p>
+                    <p>now:</p>
+                    <p>{{activity.now}}</p>
+                    <p>num:</p>
+                    <p>{{activity.num}}</p>
+                    <p>location:</p>
+                    <p>{{activity.didian}}</p>
+                    <p>More infos are in log. This is just an example</p>
+                </div>
+            </div>
+            <p></p>
+        </ion-list>
+
+        <!--<button class="button button-block button-positive submitButton" ng-click="addRecord()">{{addRecordBtn}}</button>-->
+
+    </ion-content>
 </ion-view>

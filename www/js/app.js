@@ -11,6 +11,8 @@ var main = angular.module('HCCBMain', ['ui.router', 'ionic']);
 var HCCBApp = angular.module('HCCBApp', ['ionic', 'HCCBLogin', 'HCCBMain']);
 
 HCCBApp.config(function ($httpProvider) {
+    //Access-Control-Allow-Origin:*
+    console.log("allow XDomain")
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
@@ -42,14 +44,14 @@ main.config(function ($stateProvider, $urlRouterProvider) {
     // Each state's controller can be found in controllers.js
     $stateProvider
 
-    // setup an abstract state for the tabs directive
+
     .state('login', {
         url: "/login",
         //abstract: true,
         templateUrl: "modules/login/login_tmp.html",
         controller: "LoginCtrl"
     })
-
+    // setup an abstract state for the tabs directive
     .state('app', {
         url: '/app',
         abstract: true,
@@ -62,6 +64,16 @@ main.config(function ($stateProvider, $urlRouterProvider) {
         views: {
             'app-activity': {
                 templateUrl: 'modules/activity/activity_tmp.html',
+                controller: 'ActivityCtrl'
+            }
+        }
+    })
+
+    .state('app.activity.addRecord', {
+        url: '/addRecord',
+        views: {
+            'app-activity-addRecord': {
+                templateUrl: 'modules/activity/addRecord_tmp.html',
                 controller: 'ActivityCtrl'
             }
         }

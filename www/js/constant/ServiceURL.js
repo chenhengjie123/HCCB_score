@@ -1,10 +1,10 @@
 function ServiceURL() {};
 
-ServiceURL.SERVER = 'http://127.0.0.1'
-ServiceURL.API = ServiceURL.SERVER + '/api'
+ServiceURL.SERVER = 'http://58.30.214.66:8080'
+ServiceURL.API = ServiceURL.SERVER + '/hccbapi/api'
 ServiceURL.ACCOUNT = ServiceURL.API + '/accout'
 ServiceURL.USER = ServiceURL.API + '/users'
-ServiceURL.ACTIVITY = ServiceURL.API + '/activity'
+ServiceURL.ACTIVITY = ServiceURL.API + '/activities'
 ServiceURL.HISTORY = ServiceURL.API + '/history'
 ServiceURL.SCORE = ServiceURL.API + '/scores'
 

@@ -1,32 +1,34 @@
-<ion-content class="has-header padding">
-    <!--logo-->
+<ion-view title="{{loginTitle}}">
+    <ion-content class="has-header padding">
+        <!--logo-->
 
-    <!--content-->
-    <div class="card list login">
-        <div class="item item-divider header header1">
-            {{appName}}
-        </div>
-        <form name="loginForm" novalidate>
-            <div class="list">
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">User Name</span>
-                    <input type="text" placeholder="User Name" ng-model="userName" required>
-                </label>
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Password</span>
-                    <input type="text" placeholder="Password" ng-model="password" required>
-                </label>
-                <div ng-show="!userName || !password">Please fill in username and password.</div>
+        <!--content-->
+        <div class="card list login">
+            <div class="item item-divider header header1">
+                {{appName}}
             </div>
-        </form>
+            <form name="loginForm" novalidate>
+                <div class="list">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">User Name</span>
+                        <input type="text" placeholder="User Name" ng-model="userName" required>
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Password</span>
+                        <input type="text" placeholder="Password" ng-model="password" required>
+                    </label>
+                    <div ng-show="!userName || !password">Please fill in username and password.</div>
+                </div>
+            </form>
 
-        <div class="padding">
-            <!--<button id="loginBtn" class="button button-block button-positive submitButton" ng-click="login()" ng-disabled="loginForm.$invalid">{{loginButton}}</button>-->
-            <button id="offlineBtn" class="button button-block button-energized" ng-click="offline()">{{offlineButton}}</button>
+            <div class="padding">
+                <!--<button id="loginBtn" class="button button-block button-positive submitButton" ng-click="login()" ng-disabled="loginForm.$invalid">{{loginButton}}</button>-->
+                <button id="offlineBtn" class="button button-block button-energized" ng-click="offline()">{{offlineButton}}</button>
+            </div>
+
         </div>
 
-    </div>
 
-
-</ion-content>
+    </ion-content>
+</ion-view>
 

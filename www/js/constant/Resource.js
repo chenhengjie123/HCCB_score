@@ -16,6 +16,7 @@ Resource.NicknameText = "Nickname"
 
 /*Activiry*/
 Resource.ActivityTitle = "Activity"
+Resource.AddRecordBtn = "Begin a competition"
 
 /*History*/
 Resource.ScoreTitle = "Score"
