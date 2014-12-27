@@ -2,6 +2,7 @@ function ServiceURL() {};
 
 ServiceURL.SERVER = 'http://58.30.214.66:8080'
 ServiceURL.API = ServiceURL.SERVER + '/hccbapi/api'
+ServiceURL.LOGIN = ServiceURL.SERVER + '/api/access'
 ServiceURL.ACCOUNT = ServiceURL.API + '/accout'
 ServiceURL.USER = ServiceURL.API + '/users'
 ServiceURL.ACTIVITY = ServiceURL.API + '/activities'

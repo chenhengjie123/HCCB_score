@@ -1,5 +1,5 @@
 login
-    .controller('LoginCtrl', function ($scope, $location, $state) {
+    .controller('LoginCtrl', function ($scope, $location, $state, LoginService) {
         $scope.loginButton = Resource.LoginButton;
         $scope.offlineButton = Resource.OfflineButton;
         $scope.loginTitle = Resource.LoginTitle;
@@ -10,13 +10,22 @@ login
 
 
         $scope.login = function () {
-            console.log("username: " + $scope.userName);
-            console.log("password: " + $scope.password);
-            if ($scope.userName == 'test' && $scope.password == 'test') {
-                addToken($scope.userName + $scope.password);
-                console.info("Login success. UserName = " + $scope.userName);
+            //console.log("username: " + $scope.userName);
+            //console.log("password: " + $scope.password);
+            console.log("Begin get data according to client_id=testclient")
+            LoginService.get("testclient").then(function (data) {
+                console.log("Get data success. Data is " + angular.toJson(data));
+                token = data.access_token;
+                addToken(token);
+                console.info("Login success. token = " + data.access_token);
                 $state.transitionTo('app.score');
-            };
+            }, function (data) { //go to error() in service
+                $scope.errorMessage = data;
+            });
+
+
+            //Oauth2.0
+            //$auth.authenticate(provider);
         };
 
         $scope.offline = function () {

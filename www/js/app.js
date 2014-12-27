@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var login = angular.module('HCCBLogin', ['ionic']);
+var login = angular.module('HCCBLogin', ['ionic', 'satellizer']);
 var main = angular.module('HCCBMain', ['ui.router', 'ionic']);
 
 var HCCBApp = angular.module('HCCBApp', ['ionic', 'HCCBLogin', 'HCCBMain']);
@@ -35,6 +35,25 @@ HCCBApp
 
         });
     });
+
+
+//config oauth2
+//https://github.com/sahat/satellizer
+login.config(function ($authProvider) {
+
+    $authProvider.oauth2({
+        name: 'HCCB',
+        url: '/activity',
+        redirectUri: window.location.origin,
+        clientId: 'testclient',
+        client_secret: 'secret',
+        response_type: 'token',
+        requiredUrlParams: ['client_secret'],
+        client_secret: 'client',
+        authorizationEndpoint: ServiceURL.LOGIN,
+    });
+})
+
 
 main.config(function ($stateProvider, $urlRouterProvider) {
 
